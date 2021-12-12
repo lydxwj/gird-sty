@@ -1,0 +1,8 @@
+html,body{
+  padding: 20px 0;
+}
+.divider{
+  height: 20px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
