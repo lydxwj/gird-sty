@@ -7,7 +7,7 @@
   <title>容器属性</title>
   <link rel="stylesheet" href="./base.css">
   <style>
-    .gird{
+    .grid{
       display: grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
@@ -53,60 +53,75 @@
     .item-9 {
       background-color: #4dc7ec;
     }
-    .gird-inline{
+    .grid-inline{
       display: inline-grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
     }
-    .gird-template{
+    .grid-template{
       display: grid;
       grid-template-columns: 100px 50px 50px;
       grid-template-rows: 100px 50px 50px;
     }
-    .gird-template-percentage{
-      height: 200px;
+    .grid-template-percentage{
+      height: 300px;
       display: grid;
       grid-template-columns: 20% 40% 40%;
       grid-template-rows: 33.33% 33.33% 33.33%;
     }
-    .gird-template-repeat{
+    .grid-template-repeat{
       display: grid;
       grid-template-columns: repeat(2, 100px 60px);
       grid-template-rows: repeat(3, 60px)
     }
-    .gird-template-auto-fill{
+    .grid-template-auto-fill{
       display: grid;
       grid-template-columns: repeat(auto-fill, 200px);
       grid-template-rows: repeat(3, 60px)
     }
-    .gird-template-fr{
+    .grid-template-fr{
       display: grid;
       grid-template-columns: 150px 1fr 2fr;
       grid-template-rows: repeat(3, 60px)
     }
-    .gird-template-minmax{
+    .grid-template-minmax{
       display: grid;
       grid-template-columns: 1fr 1fr minmax(300px, 1fr);
       grid-template-rows: repeat(3, 60px)
     }
-    .gird-template-auto{
-      display: grid;
+    .grid-template-auto{
+      display: inline-grid;
+      width: 45%;
       grid-template-columns: 100px auto 100px;
       grid-template-rows: repeat(3, 60px)
     }
-    .gird-template-line{
+    .grid-template-auto-fr{
+      display: inline-grid;
+      width: 45%;
+      grid-template-columns: 100px auto 1fr;
+      grid-template-rows: repeat(3, 60px)
+    }
+    .grid-template-line{
       display: grid;
       grid-template-columns: [c1] 100px [c2] 100px [c3] auto [c4];
       grid-template-rows: [r1 aaa] 100px [r2] 100px [r3] auto [r4];
     }
-    .gird-template-gap{
-      display: grid;
+    .grid-template-gap{
+      display: inline-grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
       column-gap: 20px;
       row-gap: 40px;
+      border: 1px solid #ccc;
     }
-    .gird-template-area{
+    .grid-template-gap2{
+      display: inline-grid;
+      grid-template-columns: 50px 50px 50px;
+      grid-template-rows: 50px 50px 50px;
+      gap: 40px 20px;
+      border: 1px solid #ccc;
+    }
+    .grid-template-area{
       display: grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
@@ -114,49 +129,51 @@
                            "main main sidebar"
                            "footer footer footer";
     }
-    .gird-template-flow-column{
+    .grid-template-flow-column{
       display: inline-grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
       grid-auto-flow: column;
     }
-    .gird-template-flow-row-dense{
+    .grid-template-flow-row-dense{
       display: inline-grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
       grid-auto-flow: row dense;
     }
-    .gird-template-flow-row-dense .item-1{
+    .grid-template-flow-row-dense .item-1{
       grid-column-start: 1;
       grid-column-end: 3; 
     }
-    .gird-template-flow-row-dense .item-2{
+    .grid-template-flow-row-dense .item-2{
       grid-column-start: 1;
       grid-column-end: 3; 
     }
-    .gird-template-flow-column-dense{
+    .grid-template-flow-column-dense{
       display: inline-grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
       grid-auto-flow: column dense;
+      /* 超出列宽度变小问题 */
+      /* grid-auto-columns: 50px; */
     }
-    .gird-template-flow-column-dense .item-1{
+    .grid-template-flow-column-dense .item-1{
       grid-column-start: 1;
       grid-column-end: 3; 
     }
-    .gird-template-flow-column-dense .item-2{
+    .grid-template-flow-column-dense .item-2{
       grid-column-start: 1;
       grid-column-end: 3; 
     }
-    .gird-template-place{
+    .grid-template-place{
       display: inline-grid;
       grid-template-columns: 100px 100px 100px;
       grid-template-rows: 100px 100px 100px;
       justify-items: center;
-      align-items: center;
+      align-items: start;
       border: 1px solid #ccc;
     }
-    .gird-template-content{
+    .grid-template-content{
       width: 400px;
       height: 400px;
       display: inline-grid;
@@ -166,17 +183,29 @@
       align-content: space-evenly;
       border: 1px solid #ccc;
     }
-    .gird-auto{
+    .grid-template-content-stretch{
+      width: 400px;
+      height: 400px;
+      display: inline-grid;
+      grid-template-columns: auto 50px auto;
+      /* grid-template-columns: 100px 100px 100px; */
+      /* grid-template-rows: 100px 100px 100px; */
+      justify-content: stretch;
+      /* align-content: stretch; */
+      border: 1px solid #ccc;
+    }
+    
+    .grid-auto{
       display: grid;
       grid-template-columns: 100px 100px 100px;
       grid-template-rows: 100px 100px 100px;
       grid-auto-rows: 50px;
     }
-    .gird-auto .item-8 {
+    .grid-auto .item-8 {
       grid-row-start: 4;
       grid-column-start: 2;
     }
-    .gird-auto .item-9 {
+    .grid-auto .item-9 {
       grid-row-start: 5;
       grid-column-start: 3;
     }
@@ -186,7 +215,7 @@
 <body>
   <section>
     <span>grid1</span>
-    <div class="gird">
+    <div class="grid">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -202,7 +231,7 @@
   <div class="divider"></div>
   <section>
     <span>inline-grid1</span>  
-    <div class="gird-inline">
+    <div class="grid-inline">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -219,7 +248,7 @@
   <section>
     <p>grid-template-columns定义item宽度100px 50px 50px</p>
     <p>grid-template-rows定义item高度100px 50px 50px</p>
-    <div class="gird-template">
+    <div class="grid-template">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -235,7 +264,7 @@
   <section>
     <p>grid-template-columns定义item宽度20% 40% 40%</p>
     <p>grid-template-rows定义item高度33.33% 33.33% 33.33%（定义百分比高度时，容器需要设置高度）</p>
-    <div class="gird-template-percentage">
+    <div class="grid-template-percentage">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -250,8 +279,8 @@
   <div class="divider"></div>
   <section>
     <p>repeat()接受两个参数，第一个参数是重复的次数，第二个参数是所要重复的值</p>
-    <p>重复某种模式grid-template-columns: repeat(2, 100px, 60px);</p>
-    <div class="gird-template-repeat">
+    <p>重复某种模式grid-template-columns: repeat(2, 100px 60px);</p>
+    <div class="grid-template-repeat">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -267,7 +296,7 @@
   <section>
     <p>auto-fill单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）容纳尽可能多的单元格，这时可以使用auto-fill关键字表示自动填充</p>
     <p>grid-template-columns: repeat(auto-fill, 200px);</p>
-    <div class="gird-template-auto-fill">
+    <div class="grid-template-auto-fill">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -285,7 +314,7 @@
     <p>1fr和1fr就表示相同</p>
     <p>1fr和2fr就表示后者是前者的两倍</p>
     <p>150px、1fr、2fr就表示150像素，第二个是第三个的一半</p>
-    <div class="gird-template-fr">
+    <div class="grid-template-fr">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -301,7 +330,7 @@
   <section>
     <p>minmax()产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值</p>
     <p>minmax(300px, 1fr)表示不小于300px，不大于1fr，当1fr&gt;300时是1fr，当1fr&lt;300时是1fr</p>
-    <div class="gird-template-minmax">
+    <div class="grid-template-minmax">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -317,7 +346,18 @@
   <section>
     <p>auto由浏览器自己决定长度</p>
     <p>固定值和auto搭配，auto会占据剩余部分，和fr一起使用时只会占本身内容宽度</p>
-    <div class="gird-template-auto">
+    <div class="grid-template-auto">
+      <div class="item item-1">1</div>
+      <div class="item item-2">2</div>
+      <div class="item item-3">3</div>
+      <div class="item item-4">4</div>
+      <div class="item item-5">5</div>
+      <div class="item item-6">6</div>
+      <div class="item item-7">7</div>
+      <div class="item item-8">8</div>
+      <div class="item item-9">9</div>
+    </div>
+    <div class="grid-template-auto-fr">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -334,7 +374,7 @@
     <p>网格线的名称，grid-template-columns属性和grid-template-rows属性里面，还可以使用方括号，指定每一根网格线的名字，方便以后的引用</p>
     <p>正常情况下，n行有n + 1根水平网格线，m列有m + 1根垂直网格线</p>
     <p>网格布局允许同一根线有多个名字，比如[fifth-line row-5]</p>
-    <div class="gird-template-line">
+    <div class="grid-template-line">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -351,7 +391,18 @@
     <p>row-gap属性设置行与行的间隔（行间距）</p>
     <p>column-gap属性设置列与列的间隔（列间距）</p>
     <p>gap属性合并简写形式</p>
-    <div class="gird-template-gap">
+    <div class="grid-template-gap">
+      <div class="item item-1">1</div>
+      <div class="item item-2">2</div>
+      <div class="item item-3">3</div>
+      <div class="item item-4">4</div>
+      <div class="item item-5">5</div>
+      <div class="item item-6">6</div>
+      <div class="item item-7">7</div>
+      <div class="item item-8">8</div>
+      <div class="item item-9">9</div>
+    </div>
+    <div class="grid-template-gap2">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -370,7 +421,7 @@
     <p>某些区域不需要利用，则使用"点"（.）表示</p>
     <p>区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为区域名-start，终止网格线自动命名为区域名-end。</p>
     <p>设置这个属性不影响单元格布局，需要配合项目属性使用</p>
-    <div class="gird-template-area">
+    <div class="grid-template-area">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -386,7 +437,7 @@
   <section>
     <p>grid-auto-flow默认值是row的放置顺序是"先行后列"，即先填满第一行，再开始放入第二行；column，变成"先列后行"</p>
     <p>row dense和column dense。这两个值主要用于，某些项目指定位置以后，剩下的项目怎么自动放置</p>
-    <div class="gird-template-flow-column">
+    <div class="grid-template-flow-column">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -397,7 +448,7 @@
       <div class="item item-8">8</div>
       <div class="item item-9">9</div>
     </div>
-    <div class="gird-template-flow-row-dense">
+    <div class="grid-template-flow-row-dense">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -408,7 +459,7 @@
       <div class="item item-8">8</div>
       <div class="item item-9">9</div>
     </div>
-    <div class="gird-template-flow-column-dense">
+    <div class="grid-template-flow-column-dense">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -425,7 +476,7 @@
     <p>justify-items属性设置单元格内容的水平位置（左中右），align-items属性设置单元格内容的垂直位置（上中下）;start | end | center | stretch</p>
     <p>stretch：拉伸，占满单元格的整个宽度（默认值）；设置其他值，项目就不会占满单元格</p>
     <p>place-items: align-items justify-items如果省略第二个值，则浏览器认为与第一个值相等</p>
-    <div class="gird-template-place">
+    <div class="grid-template-place">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -441,8 +492,20 @@
   <section>
     <p>justify-content属性是整个内容区域在容器里面的水平位置（左中右），align-content属性是整个内容区域的垂直位置（上中下）；start | end | center | stretch | space-around | space-between | space-evenly；最好不与gap同时使用</p>
     <p>space-evenly - 项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔。</p>
+    <p>需要设置栅格容器的宽高，宽高大于所有项目的和才好；stretch是在不设置项目固定大小（宽高中有一个不固定），才有效，然而不设置默认也是这样</p>
     <p>place-content: space-around space-evenly如果省略第二个值，则浏览器认为与第一个值相等</p>
-    <div class="gird-template-content">
+    <div class="grid-template-content">
+      <div class="item item-1">1</div>
+      <div class="item item-2">2</div>
+      <div class="item item-3">3</div>
+      <div class="item item-4">4</div>
+      <div class="item item-5">5</div>
+      <div class="item item-6">6</div>
+      <div class="item item-7">7</div>
+      <div class="item item-8">8</div>
+      <div class="item item-9">9</div>
+    </div>
+    <div class="grid-template-content-stretch">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
@@ -457,7 +520,7 @@
   <div class="divider"></div>
   <section>
     <p>grid-auto-columns属性和grid-auto-rows属性用来设置，浏览器自动创建的多余网格的列宽和行高</p>
-    <div class="gird-auto">
+    <div class="grid-auto">
       <div class="item item-1">1</div>
       <div class="item item-2">2</div>
       <div class="item item-3">3</div>
